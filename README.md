@@ -1,4 +1,4 @@
-GPlus_Demo
+GPlus_Demo application - FriendBook
 ==========
 
 <h3>Getting started with Google Plus JavaScript API</h3>
