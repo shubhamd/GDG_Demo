@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Know Buddy !</title>
+        <meta name="description" content="Responsive CSS Timeline with 3D Effect" />
+        <meta name="keywords" content="timeline, 3d, css, css3, css-only, transitions, responsive, fluid" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/style.css" /><script src="http://code.jquery.com/jquery-1.10.2.min.js">
+        <script src="js/modernizr.custom.63321.js"></script>
+
+
+
+        <!--[if lte IE 7]><style>.support-note .note-ie{display:block;}</style><![endif]-->
+    </head>
+    <body>
+
+        
+     <!----------------------------------------------------------------------------------------   
+     str = '<div id ="buddy"><li class="event">'+
+                        '<input type="radio" name="tl-group" unchecked/>'+
+                        '<label></label>'+
+                        '<div style="width:100%;height:100%; z-index: -1;"><img src="'+ response[i].pic_big +'"style="border-radius:10px;"><span><br>'+ response[i].name+'</span></div>'+
+                        '<div class="content-perspective">'+
+                            '<div class="content">'+
+                                '<div class="content-inner">'+
+                                    '<h3>'+ response[i].about_me+'</h3>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</li></div>';
+
+            ------------------------------------------------------------------------------------------- _-->        
+        <div class="container"> 
+            <header class="clearfix">
+            
+                <h1>Know  your  FriendZ  Better ! <span>( in  their  own  words ! )</span></h1>
+                <h2>FriendZ  <br>describing <br> Themselves !!</h2>
+                <div class="support-note">
+                    <span class="note-ie">Sorry, only modern browsers.</span>
+                </div>
+                
+            </header>
+          <button id="authorize-button" style="visibility: hidden">Authorize</button>
+    <script type="text/javascript">
+      // Enter a client ID for a web application from the Google Developer Console.
+      // The provided clientId will only work if the sample is run directly from
+      // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
+      // In your Developer Console project, add a JavaScript origin that corresponds to the domain
+      // where you will be running the script.
+      var clientId = '469745351051-lcm27adg6rhohshhg34n265ddgljruhe.apps.googleusercontent.com';
+
+      // Enter the API key from the Google Develoepr Console - to handle any unauthenticated
+      // requests in the code.
+      // The provided key works for this sample only when run from
+      // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
+      // To use in your own application, replace this API key with your own.
+      var apiKey = '469745351051-lcm27adg6rhohshhg34n265ddgljruhe@developer.gserviceaccount.com';
+
+      // To enter one or more authentication scopes, refer to the documentation for the API.
+      var scopes = 'https://www.googleapis.com/auth/plus.me';
+
+      // Use a button to handle authentication the first time.
+      function handleClientLoad() {
+        gapi.client.setApiKey(apiKey);
+        window.setTimeout(checkAuth,1);
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+      }
+
+
+      function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        if (authResult && !authResult.error) {
+          authorizeButton.style.visibility = 'hidden';
+          makeApiCall();
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+      function handleAuthClick(event) {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+        return false;
+      }
+
+      // Load the API and make an API call.  Display the results on the screen.
+      function makeApiCall() {
+        gapi.client.load('plus', 'v1', function() {
+          var request = gapi.client.plus.people.get({
+            'userId': 'me'
+          });
+          request.execute(function(resp) {
+            var heading = document.createElement('h4');
+            var image = document.createElement('img');
+            image.src = resp.image.url;
+            heading.appendChild(image);
+            heading.appendChild(document.createTextNode(resp.displayName));
+
+            document.getElementById('content').appendChild(heading);
+          });
+        });
+      }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <div id="content"></div>
+    <p>Retrieves your profile name using the Google Plus API.</p> 
+     <section class="main">
+
+                <ul class="timeline" id ="bigg">
+
+                    
+
+                    
+                    
+                </ul>
+            </section>
+<div id="loader" style="display:none"><img src="https://ssl.gstatic.com/android/market_images/web/loading_dark_large.gif" style="opacity:.7"/></div>
+        </div><!-- /container -->
+
+<script type="text/javascript" src="yup.js"></script>
+
+
+</script>
+
+    </body>
+</html>
